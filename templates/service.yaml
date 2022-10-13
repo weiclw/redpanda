@@ -11,9 +11,11 @@ spec:
     - port: {{ .Values.externalPort1 }}
       targetPort: 9644
       protocol: TCP
+      name: admin
     # redpanda api
     - port: {{ .Values.externalPort2 }}
       targetPort: 9092
       protocol: TCP
+      name: api
   selector:
     {{- include "redpanda.selectorLabels" . | nindent 4 }}
