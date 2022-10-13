@@ -33,18 +33,18 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: [ "redpanda" ]
-          args: [
-                  "start",
-          ]
           ports:
             - containerPort: 8081
+              hostPort: 8081
               protocol: TCP
             - containerPort: 8082
+              hostPort: 8082
               protocol: TCP
             - containerPort: 9092
+              hostPort: 9092
               protocol: TCP
             - containerPort: 9644
+              hostPort: 9644
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
