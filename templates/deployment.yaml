@@ -28,6 +28,7 @@ spec:
       serviceAccountName: {{ include "redpanda.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      # We know this path is ext4 inside k3s container
       volumes:
         - name: redpanda-storage
           hostPath:
