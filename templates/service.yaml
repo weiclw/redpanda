@@ -8,7 +8,7 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     # redpanda api
-    - port: {{ .Values.externalPort2 }}
+    - port: {{ .Values.apiPort }}
       targetPort: 9092
       protocol: TCP
       name: api

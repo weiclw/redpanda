@@ -39,6 +39,11 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - rpk
+            - redpanda
+            - start
+            - --advertise-kafka-addr=INSIDE://redpanda:{{ .Values.apiPort }},OUTSIDE://192.168.1.36:{{ .Values.apiPort }}
           volumeMounts:
             - mountPath: /var/lib/redpanda/data
               name: redpanda-storage
@@ -46,10 +51,9 @@ spec:
             - containerPort: 8081
               protocol: TCP
             - containerPort: 8082
-              hostPort: {{ .Values.externalPort1 }}
               protocol: TCP
             - containerPort: 9092
-              hostPort: {{ .Values.externalPort2 }}
+              hostPort: {{ .Values.apiPort }}
               protocol: TCP
             - containerPort: 9644
               protocol: TCP
