@@ -28,7 +28,9 @@ podAnnotations: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext: {}
+# So that POD can access hostPath volume
+securityContext:
+  privileged: true
   # capabilities:
   #   drop:
   #   - ALL
