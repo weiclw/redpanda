@@ -43,8 +43,7 @@ spec:
             - rpk
             - redpanda
             - start
-            - --advertise-kafka-addr=INSIDE://redpanda:{{ .Values.apiPort }},OUTSIDE://192.168.1.36:{{ .Values.apiPort }}
-            - --kafka-addr=INSIDE://redpanda:{{ .Values.apiPort }},OUTSIDE://192.168.1.36:{{ .Values.apiPort }}
+            - --advertise-kafka-addr=OUTSIDE://192.168.1.36:{{ .Values.apiPort }}
           volumeMounts:
             - mountPath: /var/lib/redpanda/data
               name: redpanda-storage
