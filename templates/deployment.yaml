@@ -31,7 +31,7 @@ spec:
       volumes:
         - name: redpanda-storage
           hostPath:
-            path: /var/lib/redpanda
+            path: /var/lib/rancher/scratch
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
