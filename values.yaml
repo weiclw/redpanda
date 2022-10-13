@@ -26,8 +26,7 @@ serviceAccount:
 podAnnotations: {}
 
 podSecurityContext:
-  seLinuxOptions:
-    level: "s0:c123,c456"
+  runAsUser: 0
   # fsGroup: 2000
 
 # So that POD can access hostPath volume
