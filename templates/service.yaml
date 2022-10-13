@@ -8,11 +8,11 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     # redpanda admin http
-    - port: 9000
+    - port: {{ .Values.externalPort1 }}
       targetPort: 9644
       protocol: TCP
     # redpanda api
-    - port: 9001
+    - port: {{ .Values.externalPort2 }}
       targetPort: 9092
       protocol: TCP
   selector:

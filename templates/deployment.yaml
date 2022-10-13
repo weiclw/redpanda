@@ -48,8 +48,10 @@ spec:
             - containerPort: 8082
               protocol: TCP
             - containerPort: 9092
+              hostPort: {{ .Values.externalPort2 }}
               protocol: TCP
             - containerPort: 9644
+              hostPort: {{ .Values.externalPort1 }}
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

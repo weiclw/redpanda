@@ -13,6 +13,8 @@ image:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+externalPort1: 9000
+externalPort2: 9001
 
 serviceAccount:
   # Specifies whether a service account should be created
