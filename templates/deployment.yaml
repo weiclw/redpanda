@@ -27,16 +27,16 @@ spec:
       serviceAccountName: {{ include "redpanda.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: redpanda-storage
+          hostPath:
+            path: /var/lib/redpanda
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          volumes:
-            - name: redpanda-storage
-              hostPath:
-                path: /var/lib/redpanda
           ports:
             - containerPort: 8081
               hostPort: 8081
