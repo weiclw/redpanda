@@ -36,10 +36,6 @@ spec:
           command: [ "redpanda" ]
           args: [
                   "start",
-                  "--overprovisioned",
-                  "--smp=1",
-                  "--memory=1G",
-                  "--reserve-memory=0M"
           ]
           ports:
             - containerPort: 8081
