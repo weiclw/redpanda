@@ -7,11 +7,6 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    # redpanda admin http
-    - port: {{ .Values.externalPort1 }}
-      targetPort: 9644
-      protocol: TCP
-      name: admin
     # redpanda api
     - port: {{ .Values.externalPort2 }}
       targetPort: 9092

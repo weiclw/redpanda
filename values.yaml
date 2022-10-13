@@ -13,7 +13,7 @@ image:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-externalPort1: 9644
+externalPort1: 9000
 externalPort2: 9092
 
 serviceAccount:
