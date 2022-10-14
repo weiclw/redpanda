@@ -26,7 +26,6 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "redpanda.serviceAccountName" . }}
-      hostNetwork: true
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       # We know this path is ext4 inside k3s container
