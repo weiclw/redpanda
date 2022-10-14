@@ -43,7 +43,7 @@ spec:
             - rpk
             - redpanda
             - start
-            - --advertise-kafka-addr=redpanda-0.redpanda:{{ .Values.apiPort }}
+            - --advertise-kafka-addr=redpanda.redpanda:{{ .Values.apiPort }}
             - --kafka-addr=0.0.0.0:{{ .Values.apiPort }}
           volumeMounts:
             - mountPath: /var/lib/redpanda/data
